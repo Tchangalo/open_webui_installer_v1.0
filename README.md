@@ -229,7 +229,7 @@ sudo chmod +x setup.sh
 ```bash
 ./setup.sh
 ```
-Portainer ist nun im Browser aufrufbar unter **\<server-ip\>:9000**. Dort muss auch _umgehend_ ein Useraccount angelegt werden. Und Open WebUI ist aufrufbar unter **\<server-ip\>:3000**. Der allererste Start des open-webui Containers kann (aus mir unbekannten Gründen) einige Minuten dauern. Bei jedem weiteren Reboot oder Neustart soll der open-webui Container dann aber immer zügig auf ```healthy```springen.
+Portainer ist nun im Browser aufrufbar unter **\<server-ip\>:9000**. Dort muss auch _umgehend_ ein Useraccount angelegt werden. Und Open WebUI ist aufrufbar unter **\<server-ip\>:3000**. Der allererste Start des open-webui Containers kann einige Minuten dauern. Bei jedem weiteren Reboot oder Neustart soll der open-webui Container dann aber immer zügig auf ```healthy```springen.
 
 Das Skript bindet keine GPU ein. Wer das haben möchte, fügt im ```setup.sh``` im Block der Zeilen 148-156 folgendermaßen ```--gpus all``` ein:
 ```bash
@@ -248,4 +248,4 @@ succ "Open-WebUI running on port 3000 with GPU support."
 
 Augrund des Fixes ist Portainer nur ```running```, aber nicht ```healthy```. Das funktioniert aber genauso gut und geht im Moment nicht besser. Wer es ```healthy``` haben will, muss Docker 28 verwenden (und den Fix auskommentieren).
 
-Beim allerersten Start muss der open-webui Container manchmal nochmal restartet werden oder sogar noch ein Reboot gemacht werden, damit er auf ```healthy``` springt. 
+Beim allerersten Start muss der open-webui Container manchmal nochmal restartet werden oder sogar noch ein Reboot gemacht werden, damit er auf ```healthy``` springt. Die Ladehemmungen des Open WebUI Containers treten nur dann auf, wenn auch ein neues Image gezogen wird, also wenn man Docker neuinstalliert hat. Wenn bereits ein Image vorhanden ist, springt der Container zügig auf ```healthy```.
