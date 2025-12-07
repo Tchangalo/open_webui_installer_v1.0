@@ -118,7 +118,7 @@ EOF
 }
 
 install_portainer() {
-  ${SUDO} docker volume create "${PORTAINER_VOLUME}" >/dev/null
+  # Remove Portainer container, if present
   if ${SUDO} docker ps -a --format '{{.Names}}' | grep -x "${PORTAINER_NAME}" >/dev/null 2>&1; then
     warn "Existing Portainer container found — removing."
     ${SUDO} docker rm -f "${PORTAINER_NAME}" || true
@@ -128,8 +128,9 @@ install_portainer() {
     ${SUDO} docker volume rm "${PORTAINER_VOLUME}" || true
     succ "Portainer volume '${PORTAINER_VOLUME}' removed."
   fi
-  
+  # Deploy Portainer container
   info "Deploying Portainer container."
+  ${SUDO} docker volume create "${PORTAINER_VOLUME}" >/dev/null
   ${SUDO} docker run -d \
     -p ${PORTAINER_PORT_EDGE}:8000 -p ${PORTAINER_PORT_HTTP}:9000 \
     --name "${PORTAINER_NAME}" \
@@ -140,7 +141,7 @@ install_portainer() {
   succ "Portainer deployed on ports ${PORTAINER_PORT_HTTP} and ${PORTAINER_PORT_EDGE}."
 }
 
-# --- Open-WebUI ---
+# --- Open WebUI ---
 install_webui() {
   info "Starting Open-WebUI installation."
   if ${SUDO} docker ps -a --format '{{.Names}}' | grep -x "open-webui" >/dev/null 2>&1; then
