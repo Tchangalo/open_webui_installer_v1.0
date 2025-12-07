@@ -144,6 +144,7 @@ install_portainer() {
 # --- Open WebUI ---
 install_webui() {
   info "Starting Open-WebUI installation."
+  # Remove Open WebUI container, if present
   if ${SUDO} docker ps -a --format '{{.Names}}' | grep -x "open-webui" >/dev/null 2>&1; then
     warn "Existing open-webui container found — removing."
     ${SUDO} docker rm -f open-webui || true
