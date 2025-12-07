@@ -81,12 +81,12 @@ remove_docker_compose_if_installed() {
     ${SUDO} rm -f "${COMPOSE_DEST}"
     succ "docker-compose removed."
   else
-    info "No docker-compose installation found."
+    info "No Docker Compose installation found."
   fi
 }
 
 install_docker_compose() {
-  info "Installing docker-compose."
+  info "Installing Docker Compose."
   LATEST_URL="$(curl -fsSL -o /dev/null -w '%{url_effective}' https://github.com/docker/compose/releases/latest)"
   LATEST_TAG="${LATEST_URL##*/}"
   DOWNLOAD_URL="https://github.com/docker/compose/releases/download/${LATEST_TAG}/docker-compose-$(uname -s)-$(uname -m)"
@@ -94,9 +94,9 @@ install_docker_compose() {
   ${SUDO} mv "${COMPOSE_TMP}" "${COMPOSE_DEST}"
   ${SUDO} chmod +x "${COMPOSE_DEST}"
   if ${SUDO} "${COMPOSE_DEST}" version >/dev/null 2>&1; then
-    succ "docker-compose installation successful."
+    succ "Docker Compose installation successful."
   else
-    err "docker-compose installation failed."
+    err "Docker Compose installation failed."
     exit 1
   fi
 }
