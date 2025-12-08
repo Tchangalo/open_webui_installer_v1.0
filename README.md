@@ -69,7 +69,7 @@ sudo reboot
 Genauer aufgedröselt, sieht das so aus:
 ```bash
 # DOCKER DEINSTALLIEREN:
-# Vorhandene Docker-Installation entfernen (falls vorhanden)
+# Vorhandene Docker-Installation entfernen
 sudo apt-get update -y
 sudo apt-get purge -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin || true
 sudo apt-get autoremove -y || true
@@ -95,7 +95,7 @@ sudo usermod -aG docker <username>
 
 
 # DOCKER COMPOSE INSTALLIEREN (optional):
-# Vorhandenes docker-compose entfernen (falls vorhanden)
+# Vorhandenes docker-compose entfernen
 sudo rm -f /usr/local/bin/docker-compose
 
 # docker-compose installieren (neuste Release wird automatisch geholt)
