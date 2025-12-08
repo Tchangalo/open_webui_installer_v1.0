@@ -135,11 +135,14 @@ sudo systemctl restart docker
 
 
 # PORTAINER INSTALLIEREN:
-# Portainer-Volume erstellen
-sudo docker volume create portainer_data >/dev/null
+# Portainer_Volume entfernen
+docker volume rm 'portainer_data' || true
 
 # Vorhandenen Portainer-Container entfernen (falls vorhanden)
 sudo docker rm -f portainer || true
+
+# Portainer-Volume erstellen
+sudo docker volume create portainer_data >/dev/null
 
 # Portainer-Container starten
 sudo docker run -d \
