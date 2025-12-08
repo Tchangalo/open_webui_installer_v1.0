@@ -177,7 +177,7 @@ Wer einfach nur das Skript durchlaufen lässt, versteht nicht, wie es funktionie
 
 Zweitens ist das Skript auch für alle, die bei der händischen Installation gescheitert sind. 
 
-Und drittens könnte es für den einen oder anderen interessant sein, zu sehen, wie die oben aufgeführten Befehle in ein Bash-Skript gepackt werden können.
+Und drittens könnte es für den einen oder anderen interessant sein, zu sehen, wie die oben aufgeführten Befehle in ein Bash-Skript gepackt werden können, wie also Bash Imperative durch Prozeduren (Funktionen) kontrolliert und gesteuert werden können.
 
 ## **Systemvoraussetzungen**
 
