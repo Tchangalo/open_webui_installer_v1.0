@@ -138,7 +138,7 @@ sudo systemctl restart docker
 # Vorhandenen Portainer-Container entfernen
 sudo docker rm -f portainer || true
 
-# Portainer_Volume entfernen
+# Portainer-Volume entfernen
 docker volume rm 'portainer_data' || true
 
 # Portainer-Volume erstellen
