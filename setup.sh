@@ -2,9 +2,9 @@
 set -euo pipefail
 
 # --- Color definitions ---
-C='\033[0;94m'   # blue (info)
-Gr='\033[0;32m'  # green (success)
-Ge='\e[33m'      # yellow (warning)
+B='\033[0;94m'   # blue (info)
+G='\033[0;32m'  # green (success)
+Y='\e[33m'      # yellow (warning)
 R='\033[91m'     # red (error)
 NC='\033[0m'     # reset
 
@@ -32,9 +32,9 @@ else
 fi
 
 # --- Logging helpers ---
-info() { printf '%b\n' "${C}$*${NC}"; }
-succ() { printf '%b\n' "${Gr}$*${NC}"; }
-warn() { printf '%b\n' "${Ge}$*${NC}"; }
+info() { printf '%b\n' "${B}$*${NC}"; }
+succ() { printf '%b\n' "${G}$*${NC}"; }
+warn() { printf '%b\n' "${Y}$*${NC}"; }
 err()  { printf '%b\n' "${R}ERROR: $*${NC}" >&2; }
 
 # --- Docker ---
