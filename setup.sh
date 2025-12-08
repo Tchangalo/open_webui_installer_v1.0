@@ -149,7 +149,7 @@ install_webui() {
     warn "Existing open-webui container found — removing."
     ${SUDO} docker rm -f open-webui || true
   fi
-  # Remove volumes if present. COMMENT THIS OUT IF YOU WANT TO KEEP YOUR DATA/MODELS
+  # Remove volumes, if present. COMMENT THIS OUT IF YOU WANT TO KEEP YOUR DATA/MODELS
   if ${SUDO} docker volume ls --format '{{.Name}}' | grep -x "ollama" >/dev/null 2>&1; then
     ${SUDO} docker volume rm ollama || true
     succ "Volume 'ollama' removed."
