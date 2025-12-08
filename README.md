@@ -194,7 +194,7 @@ Ich habe das Skript bislang getestet unter:
 * Ubuntu-Server 24.0.3
 * Mint 21.3, 22.1 und 22.2 
 
-Damit sollte es auch auf Ubuntu-Derivaten, wie Linux Lite oder PopOS laufen, sowie auf Debian-Derivaten, wie ParrotOS, Kali usw. ausführbar sein. Speziell Debian 13 muss allerdings erstmal folgendermaßen dazu bereit gemacht werden:
+Damit sollte es auch auf Ubuntu-Derivaten, wie Linux Lite oder PopOS usw. laufen, sowie auf Debian-Derivaten, wie ParrotOS, Kali usw. ausführbar sein. Speziell Debian 13 muss allerdings erstmal folgendermaßen dazu bereit gemacht werden:
  
 1. In ```/etc/apt/sources.list``` die Zeile
 ```bash
