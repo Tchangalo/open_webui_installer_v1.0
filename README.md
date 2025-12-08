@@ -135,11 +135,11 @@ sudo systemctl restart docker
 
 
 # PORTAINER INSTALLIEREN:
-# Portainer_Volume entfernen
-docker volume rm 'portainer_data' || true
-
 # Vorhandenen Portainer-Container entfernen
 sudo docker rm -f portainer || true
+
+# Portainer_Volume entfernen
+docker volume rm 'portainer_data' || true
 
 # Portainer-Volume erstellen
 sudo docker volume create portainer_data >/dev/null
@@ -155,12 +155,12 @@ sudo docker run -d \
 
 
 # Open WebUI INSTALLIEREN:
+# Vorhandenen open-webui-Container entfernen
+sudo docker rm -f open-webui || true
+
 # Vorhandene Volumen entfernen
 docker volume rm 'ollama' || true
 docker volume rm 'open-webui' || true
-
-# Vorhandenen open-webui-Container entfernen
-sudo docker rm -f open-webui || true
 
 # Erforderliche Volumes erstellen
 sudo docker volume create ollama >/dev/null || true
